@@ -74,9 +74,6 @@ public class Appointment {
         this.id = id;
     }
 
-    public List<ServiceType> getServiceTypes() {
-        return serviceTypes;
-    }
 
     public void setServiceTypes(List<ServiceType> serviceTypes) {
         this.serviceTypes = serviceTypes;
