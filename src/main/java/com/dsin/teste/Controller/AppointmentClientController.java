@@ -68,11 +68,11 @@ public class AppointmentClientController {
         LocalDateTime startDateTime = startDate.atStartOfDay();
         LocalDateTime endDateTime = endDate.atTime(LocalTime.MAX);
 
-        List<Appointment> appointments = appointmentService.findAllClientAppointmentsByDate(startDateTime, endDateTime);
+        List<Appointment> appointments = appointmentService.findClientAppointmentsByIdDate(startDateTime, endDateTime, clientId);
         appointments.sort((a1, a2) -> a2.getDateTimeAppointment().compareTo(a1.getDateTimeAppointment()));
-        List<Appointment> appointmentsOrded = appointmentService.findAllByClient(clientId);
+        // List<Appointment> appointmentsOrded = appointmentService.findAllByClient(clientId);
         logger.info("Resposta com todas os agendamentos ordenados pelo período solicitado");
-        return ResponseEntity.ok(appointmentsOrded);
+        return ResponseEntity.ok(appointments);
 
     }
 
